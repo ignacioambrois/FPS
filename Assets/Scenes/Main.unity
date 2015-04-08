@@ -859,7 +859,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1acf17ab31acb154fb43926563fca48f, type: 2}
   m_IsPrefabParent: 0
---- !u!20 &868612647
+--- !u!20 &868612647 stripped
 Camera:
   m_PrefabParentObject: {fileID: 2000000, guid: c6453f8e1f814744d8b94e5a6d1f9942,
     type: 2}
@@ -7131,6 +7131,10 @@ Prefab:
       propertyPath: m_CullingMask.m_Bits
       value: 4294966271
       objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 2}
+      propertyPath: mouseLook.clampVerticalRotation
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 2}
   m_IsPrefabParent: 0
@@ -7536,7 +7540,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d78b80b4f42e23542aec2a5c85a5260c, type: 3}
   m_IsPrefabParent: 0
---- !u!198 &1604815335
+--- !u!198 &1604815335 stripped
 ParticleSystem:
   m_PrefabParentObject: {fileID: 19846724, guid: cccae20663d44a74e98701384be5c95b,
     type: 2}
@@ -8155,7 +8159,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1acf17ab31acb154fb43926563fca48f, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &2015975009
+--- !u!1 &2015975009 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100006, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 2}
   m_PrefabInternal: {fileID: 1173290356}
@@ -8211,13 +8215,13 @@ MonoBehaviour:
   rigidbodyFirstPersonController: {fileID: 2015975011}
   StrideInterval: 1
   RunningStrideLengthen: 0
---- !u!114 &2015975011
+--- !u!114 &2015975011 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11400004, guid: c6453f8e1f814744d8b94e5a6d1f9942,
     type: 2}
   m_PrefabInternal: {fileID: 1173290356}
   m_Script: {fileID: 11500000, guid: 81c9795a96c094f4cbde4d65546aa9b2, type: 3}
---- !u!4 &2015975012
+--- !u!4 &2015975012 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400002, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 2}
   m_PrefabInternal: {fileID: 1173290356}
@@ -8234,7 +8238,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   muzzleFlash: {fileID: 1604815335}
   impactPrefab: {fileID: 100010, guid: 645413a00f7bd0242bbd6d0e5eb6f439, type: 2}
---- !u!4 &2037254017
+--- !u!4 &2037254017 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: fddeeac0ebed86c4cab4320764b5c227, type: 3}
   m_PrefabInternal: {fileID: 1484683609}

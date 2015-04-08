@@ -21,6 +21,9 @@ public class PlayerShooting : MonoBehaviour {
 			impacts[i] = (GameObject)Instantiate(impactPrefab);
 		*/
 		//anim = GetComponentInChildren<Animator> ();
+
+		Cursor.lockState = CursorLockMode.Locked;
+		Cursor.visible = false;
 	}
 	
 	// Update is called once per frame
