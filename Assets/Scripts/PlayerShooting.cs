@@ -10,6 +10,8 @@ public class PlayerShooting : MonoBehaviour {
 	//GameObject[] impacts;
 	//int currentImpact = 0;
 	//int maxImpacts = 5;
+
+	float damage = 25.0f;
 	
 	bool shooting = false;
 	
@@ -48,8 +50,10 @@ public class PlayerShooting : MonoBehaviour {
 			
 			if(Physics.Raycast(transform.position, transform.forward, out hit, 50f))
 			{
-				if(hit.transform.tag == "Enemy")
-					Destroy (hit.transform.gameObject);
+				if(hit.transform.tag == "Player")
+				{
+					hit.transform.GetComponent<PhotonView>().RPC ("GetShot", PhotonTargets.All, damage);
+				}
 
 				GameObject hitParticle = Instantiate(impactPrefab, hit.point, Quaternion.identity) as GameObject;
 
