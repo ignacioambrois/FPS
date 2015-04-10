@@ -28,7 +28,12 @@ public class PlayerNetworkMover : Photon.MonoBehaviour {
 			foreach(Camera cam in GetComponentsInChildren<Camera>())
 				cam.enabled = true;
 			
-			transform.Find("GunCamera/M4A1 Sopmod").gameObject.layer = 10;
+			Transform gun = transform.Find("MainCamera/GunCamera/M4A1 Sopmod");
+			gun.gameObject.layer = 10;
+			foreach(Transform tr in gun){
+				tr.gameObject.layer = 10;
+			}
+
 		}
 		else{
 			StartCoroutine("UpdateData");

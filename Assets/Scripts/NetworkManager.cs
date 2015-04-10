@@ -13,11 +13,15 @@ public class NetworkManager : MonoBehaviour {
 		
 		PhotonNetwork.logLevel = PhotonLogLevel.Full;
 		PhotonNetwork.ConnectUsingSettings ("0.1");
-		
+
+		StartCoroutine ("UpdateConnectionString");
 	}
 	
-	void Update () {
-		statusText.text = PhotonNetwork.connectionStateDetailed.ToString ();
+	IEnumerator UpdateConnectionString () {
+		while (true) {
+			statusText.text = PhotonNetwork.connectionStateDetailed.ToString ();
+			yield return null;
+		}
 	}
 	
 	void OnJoinedLobby()
@@ -28,6 +32,8 @@ public class NetworkManager : MonoBehaviour {
 	
 	void OnJoinedRoom()
 	{
+		StopCoroutine ("UpdateConnectionString");
+		statusText.text = string.Empty;
 		StartSpawnProcess (0f);
 	}
 	
@@ -46,7 +52,7 @@ public class NetworkManager : MonoBehaviour {
 		                                    spawnPoints [index].position,
 		                                    spawnPoints [index].rotation,
 		                                    0);
-		//player.GetComponent<PlayerNetworkMover> ().RespawnMe += StartSpawnProcess;
+		player.GetComponent<PlayerNetworkMover> ().RespawnMe += StartSpawnProcess;
 		//sceneCamera.enabled = false;
 	}
 }
