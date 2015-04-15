@@ -6,12 +6,13 @@ public class NetworkManager : MonoBehaviour {
 	
 	[SerializeField] Text statusText;
 	[SerializeField] Transform[] spawnPoints;
+	[SerializeField] MainMenu mainMenu;
 
 	GameObject player;
 	
 	void Start () {
 		
-		PhotonNetwork.logLevel = PhotonLogLevel.Full;
+		PhotonNetwork.logLevel = PhotonLogLevel.ErrorsOnly;
 		PhotonNetwork.ConnectUsingSettings ("0.1");
 
 		StartCoroutine ("UpdateConnectionString");
@@ -34,7 +35,7 @@ public class NetworkManager : MonoBehaviour {
 	{
 		StopCoroutine ("UpdateConnectionString");
 		statusText.text = string.Empty;
-		StartSpawnProcess (0f);
+		//StartSpawnProcess (0f);
 	}
 	
 	void StartSpawnProcess (float respawnTime)
