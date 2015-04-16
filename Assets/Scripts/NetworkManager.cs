@@ -9,9 +9,14 @@ public class NetworkManager : MonoBehaviour {
 	[SerializeField] Transform[] spawnPoints;
 	[SerializeField] MainMenu mainMenu;
 
+	//main menu panel
+	[SerializeField] GameObject connectionPanel;
+	[SerializeField] InputField username;
+
 	GameObject player;
 	
 	void Start () {
+		connectionPanel.SetActive (false);
 		
 		PhotonNetwork.logLevel = PhotonLogLevel.ErrorsOnly;
 		PhotonNetwork.ConnectUsingSettings ("0.1");
@@ -25,15 +30,30 @@ public class NetworkManager : MonoBehaviour {
 			yield return null;
 		}
 	}
-	
-	void OnJoinedLobby()
-	{
+
+	public void JoinRoom(){
+		PhotonNetwork.player.name = username.text;
+		string roomName = mainMenu.roomName;
+		if(string.IsNullOrEmpty(roomName)) roomName = username.text;
 		RoomOptions ro = new RoomOptions (){isVisible = true, maxPlayers = 10};
-		PhotonNetwork.JoinOrCreateRoom ("TestRoom", ro, TypedLobby.Default);
+		PhotonNetwork.JoinOrCreateRoom (roomName, ro, TypedLobby.Default);
+	}
+
+	void OnReceivedRoomListUpdate(){
+		mainMenu.ClearButtons ();
+		RoomInfo[] rooms = PhotonNetwork.GetRoomList ();
+		foreach (RoomInfo room in rooms) {
+			mainMenu.SetButton(room.name);
+		}
+	}
+	
+	void OnJoinedLobby(){
+		connectionPanel.SetActive (true);
 	}
 	
 	void OnJoinedRoom()
 	{
+		connectionPanel.SetActive (false);
 		StopCoroutine ("UpdateConnectionString");
 		statusText.text = string.Empty;
 		StartSpawnProcess (0f);

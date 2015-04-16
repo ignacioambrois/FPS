@@ -9,11 +9,11 @@ public class MainMenu : MonoBehaviour {
 	[SerializeField] VerticalLayoutGroup group;
 	[SerializeField] GameObject listButtonPrefab;
 
+	public string roomName;
+
 	// Use this for initialization
 	void Start () {
-		for (int i=0; i<4; i++) {
-			SetButton("server " + i);
-		}
+
 	}
 
 	public void SetButton (string serverName){
@@ -24,6 +24,7 @@ public class MainMenu : MonoBehaviour {
 		size.y += 35.0f;
 		buttonHolder.sizeDelta = size;
 		button.GetComponentInChildren<Text> ().text = serverName;
+		button.name = serverName;
 
 		Button btn = button.GetComponent<Button> ();
 		btn.onClick.AddListener(() => { 
@@ -32,7 +33,14 @@ public class MainMenu : MonoBehaviour {
 
 	}
 
+	public void ClearButtons(){
+		foreach (Transform tr in buttonHolder) {
+			Destroy(tr);
+		}
+	}
+
 	void OnServerButtonClick(GameObject go){
+		roomName = go.name;
 		Debug.Log (go.GetComponentInChildren<Text>().text);
 	}
 	

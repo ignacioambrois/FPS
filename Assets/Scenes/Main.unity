@@ -813,6 +813,8 @@ MonoBehaviour:
   - {fileID: 448707735}
   - {fileID: 949406690}
   mainMenu: {fileID: 2137561267}
+  connectionPanel: {fileID: 1521762132}
+  username: {fileID: 185363914}
 --- !u!4 &93408865
 Transform:
   m_ObjectHideFlags: 0
@@ -1017,7 +1019,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.InputField+OnChangeEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_SelectionColor: {r: .65882355, g: .807843149, b: 1, a: .752941191}
-  m_Text: 
+  m_Text: DefaultPlayer
   m_CaretBlinkRate: 1.70000005
 --- !u!114 &185363915
 MonoBehaviour:
@@ -9224,7 +9226,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: DefaultPlayer
 --- !u!222 &1902704833
 CanvasRenderer:
   m_ObjectHideFlags: 0
