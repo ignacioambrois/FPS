@@ -4,8 +4,9 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour {
 
-	public RectTransform buttonHolder;
-	public VerticalLayoutGroup group;
+	[SerializeField] InputField playerName;
+	[SerializeField] RectTransform buttonHolder;
+	[SerializeField] VerticalLayoutGroup group;
 	[SerializeField] GameObject listButtonPrefab;
 
 	// Use this for initialization

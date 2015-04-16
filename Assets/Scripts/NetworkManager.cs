@@ -3,7 +3,8 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class NetworkManager : MonoBehaviour {
-	
+
+	[SerializeField] Camera sceneCamera;
 	[SerializeField] Text statusText;
 	[SerializeField] Transform[] spawnPoints;
 	[SerializeField] MainMenu mainMenu;
@@ -35,12 +36,12 @@ public class NetworkManager : MonoBehaviour {
 	{
 		StopCoroutine ("UpdateConnectionString");
 		statusText.text = string.Empty;
-		//StartSpawnProcess (0f);
+		StartSpawnProcess (0f);
 	}
 	
 	void StartSpawnProcess (float respawnTime)
 	{
-		//sceneCamera.enabled = true;
+		sceneCamera.enabled = true;
 		StartCoroutine ("SpawnPlayer", respawnTime);
 	}
 	
@@ -54,6 +55,6 @@ public class NetworkManager : MonoBehaviour {
 		                                    spawnPoints [index].rotation,
 		                                    0);
 		player.GetComponent<PlayerNetworkMover> ().RespawnMe += StartSpawnProcess;
-		//sceneCamera.enabled = false;
+		sceneCamera.enabled = false;
 	}
 }
